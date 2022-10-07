@@ -1,4 +1,4 @@
-import {LineChart,Line,XAxis,YAxis,CartesianGrid,Tooltip,Legend} from "recharts"
+import {LineChart,Line,XAxis,YAxis,CartesianGrid,Tooltip,Legend,ResponsiveContainer} from "recharts"
 const data=[
     {
         name:"2020",
@@ -24,8 +24,9 @@ const data=[
 
 const LineCharter=()=>{
     return(
+        <ResponsiveContainer width={"100%"} height={400} aspect={2}>
         <LineChart width={400} height={400} data={data} margin={{ top: 10, right: 20, bottom: 5, left: 0 }}>
-            <Line type="monotone" dataKey="react" stroke="purple" strokeWidth={3} />
+            <Line type="monotone" dataKey="react" stroke="purple" strokeWidth={3} activeDot={{r:4}} />
             <Line type="monotone" dataKey="angular" stroke="blue"/>
             <CartesianGrid stroke="#ccc"/>
             <XAxis dataKey="name"/>
@@ -33,6 +34,7 @@ const LineCharter=()=>{
              <Tooltip />
              <Legend/>
             </LineChart>
+            </ResponsiveContainer>
     )
 }
 export default LineCharter
